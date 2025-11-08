@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA SAMP Services - Професионални Услуги</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a2a0a 100%);
+            color: #00ff00;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 2px solid #00ff00;
+            margin-bottom: 40px;
+            background: rgba(0, 255, 0, 0.05);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 20px #00ff00;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            }
+            to {
+                text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            }
+        }
+
+        .subtitle {
+            color: #33ff33;
+            font-size: 1.2em;
+        }
+
+        .service-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+            border-color: #33ff33;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .service-icon {
+            font-size: 2em;
+            filter: drop-shadow(0 0 10px #00ff00);
+        }
+
+        h2 {
+            color: #00ff00;
+            font-size: 1.8em;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .service-description {
+            color: #99ff99;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #ccffcc;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 2px solid #00ff00;
+            color: #33ff33;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #00ff00, #00aa00);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(45deg, #33ff33, #00cc00);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .contact-item {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 20px 40px;
+            border-radius: 15px;
+            border: 2px solid #00ff00;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+        }
+
+        .contact-icon {
+            font-size: 1.5em;
+            filter: drop-shadow(0 0 10px #00ff00);
+        }
+
+        .contact-label {
+            color: #99ff99;
+            font-weight: bold;
+        }
+
+        .discord-link {
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .discord-link:hover {
+            color: #33ff33;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .service-card {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .contact-item {
+                padding: 15px 25px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 GTA SAMP SERVICES 🎮</h1>
+            <p class="subtitle">Професионални услуги за твоя San Andreas Multiplayer сървър</p>
+        </header>
+
+        <main>
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-icon">🔧</span>
+                    <h2>Скриптинг услуги (PAWN / Lua / др.)</h2>
+                </div>
+                <p class="service-description">
+                    Предлагам професионални услуги по изработка, настройка и оптимизация на скриптове за GTA SAMP. Мога да направя както напълно нови системи, така и да поправя или надградя вече съществуващи.
+                </p>
+                <h3 style="color: #33ff33; margin-bottom: 10px;">Примери за услуги:</h3>
+                <ul class="service-list">
+                    <li>Custom системи (бизнеси, фракции, жилища, мисии, банки, inventory и др.)</li>
+                    <li>Добавяне на нови команди и функции</li>
+                    <li>Поправка на бъгове и оптимизация на код</li>
+                    <li>Настройка на admin системи и нива</li>
+                    <li>Анти-чит, лог и сейв системи</li>
+                    <li>Работа с MySQL, includes и plugins</li>
+                    <li>Конфигуриране на различни гейм модове (Roleplay, DM, Drift, Freeroam и др.)</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-icon">🎨</span>
+                    <h2>Модинг (Modding / Custom Content)</h2>
+                </div>
+                <p class="service-description">
+                    Ако искаш да направиш сървъра си уникален, мога да създам или конвертирам различни визуални елементи.
+                </p>
+                <h3 style="color: #33ff33; margin-bottom: 10px;">Примери:</h3>
+                <ul class="service-list">
+                    <li>Custom скинове, дрехи, коли, оръжия</li>
+                    <li>HD текстури и визуални подобрения</li>
+                    <li>Конвертиране на модели от други игри към SAMP</li>
+                    <li>Оптимизация на модели за по-добра производителност</li>
+                    <li>Custom paintjobs и декорации</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-icon">🗺️</span>
+                    <h2>Мапинг услуги (Mapping)</h2>
+                </div>
+                <p class="service-description">
+                    Изработка на висококачествени мапове за всеки тип сървър – RP, Drift, DM, Event и други.
+                </p>
+                <h3 style="color: #33ff33; margin-bottom: 10px;">Примери:</h3>
+                <ul class="service-list">
+                    <li>Интериори (барове, апартаменти, полицейски участъци, бази и др.)</li>
+                    <li>Екстериори (градски центрове, паркове, улици, паркинги и др.)</li>
+                    <li>Event арени (турнири, сцени, състезания и др.)</li>
+                    <li>Оптимизация на мапове (премахване на lag, дублирани обекти, подобрена производителност)</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-icon">⚙️</span>
+                    <h2>Настройка и поддръжка на сървъри</h2>
+                </div>
+                <p class="service-description">
+                    Ако искаш готов сървър, който да е стабилен и подготвен за играчи, мога да се заема с техническата част вместо теб.
+                </p>
+                <h3 style="color: #33ff33; margin-bottom: 10px;">Примери:</h3>
+                <ul class="service-list">
+                    <li>Инсталиране и конфигуриране на SAMP сървър</li>
+                    <li>Настройка на plugins / includes / MySQL база данни</li>
+                    <li>Добавяне и настройка на гейм мод</li>
+                    <li>Настройка на автоматични рестарти, бекъпи и логове</li>
+                    <li>Почистване и оптимизация за по-добра производителност</li>
+                    <li>Дългосрочна поддръжка и помощ при бъгове / обновления</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer id="contact">
+            <h2 style="margin-bottom: 20px;">📞 Свържи се с мен</h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">💚 Готов съм да помогна за твоя проект! 💚</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <span class="contact-label">Discord:</span>
+                    <a href="https://discord.com/users/ТВОЯТ_DISCORD_ID" target="_blank" class="discord-link">твоят#discord</a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; color: #66ff66;">
+                ⚡ Бързо отговарям и давам безплатна консултация за проекта ти! ⚡
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
