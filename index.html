@@ -55,6 +55,36 @@
             font-size: 1.2em;
         }
 
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .lang-btn {
+            padding: 10px 25px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(45deg, #00ff00, #00aa00);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
         .service-card {
             background: rgba(0, 0, 0, 0.6);
             border: 2px solid #00ff00;
@@ -127,25 +157,6 @@
             color: #33ff33;
         }
 
-        .contact-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, #00ff00, #00aa00);
-            color: #000;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-        }
-
-        .contact-btn:hover {
-            background: linear-gradient(45deg, #33ff33, #00cc00);
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
-            transform: scale(1.05);
-        }
-
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -190,23 +201,8 @@
             text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
 
-        .discord-link:hover {
-            color: #33ff33;
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
-        }
-
-        .languages-badge {
-            background: rgba(0, 255, 0, 0.1);
-            border: 2px solid #00ff00;
-            border-radius: 25px;
-            padding: 10px 25px;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        .languages-badge span {
-            font-size: 1.1em;
-            color: #66ff66;
+        .hidden {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -233,60 +229,156 @@
     <div class="container">
         <header>
             <h1>🎮 GTA SA-MP & MTA SERVICES 🎮</h1>
-            <p class="subtitle">Професионални услуги за твоя San Andreas Multiplayer и Multi Theft Auto сървър</p>
-            <div class="languages-badge">
-                <span>🌍 Разбирам: Български 🇧🇬 | English 🇬🇧</span>
+            <p class="subtitle" data-lang="bg">Професионални услуги за твоя San Andreas Multiplayer и Multi Theft Auto сървър</p>
+            <p class="subtitle hidden" data-lang="en">Professional services for your San Andreas Multiplayer and Multi Theft Auto server</p>
+            
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('bg')">🇧🇬 Български</button>
+                <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
             </div>
         </header>
 
         <main>
-            <div class="service-card">
-                <div class="service-header">
-                    <span class="service-icon">🔧</span>
-                    <h2>Скриптинг услуги (PAWN / Lua / др.)</h2>
+            <!-- Bulgarian Content -->
+            <div class="lang-content" data-lang="bg">
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">🔧</span>
+                        <h2>Скриптинг услуги (PAWN / Lua / др.)</h2>
+                    </div>
+                    <p class="service-description">
+                        Предлагам професионални услуги по изработка, настройка и оптимизация на скриптове за GTA SA-MP (PAWN) и MTA (Lua). Мога да направя както напълно нови системи, така и да поправя или надградя вече съществуващи.
+                    </p>
+                    <h3 style="color: #33ff33; margin-bottom: 10px;">Примери за услуги:</h3>
+                    <ul class="service-list">
+                        <li>Custom системи (бизнеси, фракции, жилища, мисии, банки, inventory и др.)</li>
+                        <li>Скриптове за SA-MP (PAWN) и MTA (Lua)</li>
+                        <li>Добавяне на нови команди и функции</li>
+                        <li>Поправка на бъгове и оптимизация на код</li>
+                        <li>Настройка на admin системи и нива</li>
+                        <li>Анти-чит, лог и сейв системи</li>
+                        <li>Работа с MySQL, includes и plugins</li>
+                        <li>Конфигуриране на различни гейм модове (Roleplay, DM, Drift, Freeroam и др.)</li>
+                    </ul>
                 </div>
-                <p class="service-description">
-                    Предлагам професионални услуги по изработка, настройка и оптимизация на скриптове за GTA SA-MP (PAWN) и MTA (Lua). Мога да направя както напълно нови системи, така и да поправя или надградя вече съществуващи.
-                </p>
-                <h3 style="color: #33ff33; margin-bottom: 10px;">Примери за услуги:</h3>
-                <ul class="service-list">
-                    <li>Custom системи (бизнеси, фракции, жилища, мисии, банки, inventory и др.)</li>
-                    <li>Скриптове за SA-MP (PAWN) и MTA (Lua)</li>
-                    <li>Добавяне на нови команди и функции</li>
-                    <li>Поправка на бъгове и оптимизация на код</li>
-                    <li>Настройка на admin системи и нива</li>
-                    <li>Анти-чит, лог и сейв системи</li>
-                    <li>Работа с MySQL, includes и plugins</li>
-                    <li>Конфигуриране на различни гейм модове (Roleplay, DM, Drift, Freeroam и др.)</li>
-                </ul>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">⚙️</span>
+                        <h2>Настройка и поддръжка на сървъри</h2>
+                    </div>
+                    <p class="service-description">
+                        Ако искаш готов сървър, който да е стабилен и подготвен за играчи, мога да се заема с техническата част вместо теб.
+                    </p>
+                    <h3 style="color: #33ff33; margin-bottom: 10px;">Примери:</h3>
+                    <ul class="service-list">
+                        <li>Инсталиране и конфигуриране на SA-MP и MTA сървъри</li>
+                        <li>Настройка на plugins / includes / MySQL база данни</li>
+                        <li>Добавяне и настройка на гейм мод</li>
+                        <li>Настройка на автоматични рестарти, бекъпи и логове</li>
+                        <li>Почистване и оптимизация за по-добра производителност</li>
+                        <li>Дългосрочна поддръжка и помощ при бъгове / обновления</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="service-card">
-                <div class="service-header">
-                    <span class="service-icon">⚙️</span>
-                    <h2>Настройка и поддръжка на сървъри</h2>
+            <!-- English Content -->
+            <div class="lang-content hidden" data-lang="en">
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">🔧</span>
+                        <h2>Scripting Services (PAWN / Lua / etc.)</h2>
+                    </div>
+                    <p class="service-description">
+                        I offer professional services for creating, configuring, and optimizing scripts for GTA SA-MP (PAWN) and MTA (Lua). I can create completely new systems or fix and upgrade existing ones.
+                    </p>
+                    <h3 style="color: #33ff33; margin-bottom: 10px;">Service Examples:</h3>
+                    <ul class="service-list">
+                        <li>Custom systems (businesses, factions, houses, missions, banks, inventory, etc.)</li>
+                        <li>Scripts for SA-MP (PAWN) and MTA (Lua)</li>
+                        <li>Adding new commands and functions</li>
+                        <li>Bug fixes and code optimization</li>
+                        <li>Admin system and level setup</li>
+                        <li>Anti-cheat, logging and save systems</li>
+                        <li>Working with MySQL, includes and plugins</li>
+                        <li>Configuring various game modes (Roleplay, DM, Drift, Freeroam, etc.)</li>
+                    </ul>
                 </div>
-                <p class="service-description">
-                    Ако искаш готов сървър, който да е стабилен и подготвен за играчи, мога да се заема с техническата част вместо теб.
-                </p>
-                <h3 style="color: #33ff33; margin-bottom: 10px;">Примери:</h3>
-                <ul class="service-list">
-                    <li>Инсталиране и конфигуриране на SA-MP и MTA сървъри</li>
-                    <li>Настройка на plugins / includes / MySQL база данни</li>
-                    <li>Добавяне и настройка на гейм мод</li>
-                    <li>Настройка на автоматични рестарти, бекъпи и логове</li>
-                    <li>Почистване и оптимизация за по-добра производителност</li>
-                    <li>Дългосрочна поддръжка и помощ при бъгове / обновления</li>
-                </ul>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <span class="service-icon">⚙️</span>
+                        <h2>Server Setup and Maintenance</h2>
+                    </div>
+                    <p class="service-description">
+                        If you want a ready server that is stable and prepared for players, I can handle the technical part for you.
+                    </p>
+                    <h3 style="color: #33ff33; margin-bottom: 10px;">Examples:</h3>
+                    <ul class="service-list">
+                        <li>Installing and configuring SA-MP and MTA servers</li>
+                        <li>Setting up plugins / includes / MySQL database</li>
+                        <li>Adding and configuring game modes</li>
+                        <li>Setting up automatic restarts, backups and logs</li>
+                        <li>Cleaning and optimization for better performance</li>
+                        <li>Long-term maintenance and help with bugs / updates</li>
+                    </ul>
+                </div>
             </div>
         </main>
 
         <footer id="contact">
-            <h2 style="margin-bottom: 20px;">📞 Свържи се с мен</h2>
-            <p style="font-size: 1.2em; margin-bottom: 20px;">💚 Готов съм да помогна за твоя проект! 💚</p>
+            <h2 style="margin-bottom: 20px;" data-lang="bg">📞 Свържи се с мен</h2>
+            <h2 style="margin-bottom: 20px;" class="hidden" data-lang="en">📞 Contact Me</h2>
+            
+            <p style="font-size: 1.2em; margin-bottom: 20px;" data-lang="bg">💚 Готов съм да помогна за твоя проект! 💚</p>
+            <p style="font-size: 1.2em; margin-bottom: 20px;" class="hidden" data-lang="en">💚 Ready to help with your project! 💚</p>
             
             <div class="contact-info">
                 <div class="contact-item">
                     <span class="contact-icon">💬</span>
                     <span class="contact-label">Discord:</span>
-                    <span class="discord-link">blackwedz
+                    <span class="discord-link">blackwedz</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; color: #66ff66;" data-lang="bg">
+                ⚡ Бързо отговарям и давам безплатна консултация за проекта ти! ⚡
+            </p>
+            <p style="margin-top: 30px; color: #66ff66;" class="hidden" data-lang="en">
+                ⚡ Fast response and free consultation for your project! ⚡
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            // Hide all content
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Show selected language content
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+        }
+        
+        // Load saved language preference on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang === 'en') {
+                document.querySelector('.lang-btn[onclick*="en"]').click();
+            }
+        });
+    </script>
+</body>
+</html>
